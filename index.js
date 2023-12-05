@@ -6,7 +6,8 @@ const bodyParser = require('body-parser');
 const routes = require('./routes/routes.js');
 const hbs = require('hbs');
 const session = require('express-session');
-const database = require('./models/database.js')
+const database = require('./models/database.js');
+const MongoStore = require('connect-mongo');
 
 
 
@@ -51,6 +52,9 @@ app.use(session({
     secret: 'session-secret-key',
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: 'mongodb+srv://admin:ccapdev-readit-project0027@cluster0.ut1s2tm.mongodb.net/'
+    }),
     cookie: { 
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
