@@ -51,7 +51,6 @@ app.use(session({
     secret: 'session-secret-key',
     resave: false,
     saveUninitialized: true,
-    // saveUninitialized: false,
     cookie: { 
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
@@ -61,7 +60,7 @@ app.use(session({
 app.use('/', routes);
 
 app.use(function(req, res){
-    res.send('Error 404!');
+    res.send('Error 404: Page Not Found');
 });
 
 app.listen(port, hostname, function(req,res){
