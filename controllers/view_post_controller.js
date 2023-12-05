@@ -1,5 +1,5 @@
 //responsible for displaying the view post page, getting all the post as well as comments, deletion and reporting of post -arevalo
-
+//categories - denise
 const {post, report, comment, W_L, report_comment} = require('../models/post_model.js');
 const database = require('../models/database.js');
 const account = require('../models/account_model.js');
@@ -10,34 +10,28 @@ const view_post_controller = {
     },
 
     get_all_post_documents: async function(req, res){
-        try{
+        try {
             const rposts = await database.findMany(post, {});
             const accounts = await database.findMany(account, {});
-            // const rpost_acc = [];
-            // for(i = 0; i < rposts.length; i++){ // what if i just have a function to check if account username is equal to post username then use account pfp
-            //     rpost_acc[i] = await database.findOne(account, {Username: rposts[i].Username});
-            // }
-            // console.log('rposts: ', rposts);
-            // console.log('rpost_acc: ', rpost_acc);
-            const posts = rposts.reverse();
-            // const post_acc = rpost_acc.reverse();
 
-            const rcomments = await database.findMany(comment, {});//probable errors here
-            // const rcomm_acc = [];
-            // for(i = 0; i < rcomments.length; i++){
-            //     rcomm_acc[i] = await database.findOne(account, {Username: rcomments[i].Comment_user});
-            // }
-            // console.log('rcomments: ', rcomments);
-            // console.log('rcomm_acc: ', rcomm_acc);
+            var posts = req.query.category
+              ? rposts.reverse().filter(e => e.Category === req.query.category)
+              : rposts.reverse();
+      
+            const rcomments = await database.findMany(comment, {});
             const comments = rcomments.reverse();
-            // const comm_acc = rcomm_acc.reverse();
-            
-            //res.render('view_post', {user: req.session.Username, posts, post_acc, comments, comm_acc, acc_type: req.session.Account_type});
-            res.render('view_post', {user: req.session.Username, posts, accounts, comments, acc_type: req.session.Account_type});
-        }catch(error){
+      
+            res.render("view_post", {
+              user: req.session.Username,
+              posts,
+              accounts,
+              comments,
+              acc_type: req.session.Account_type,
+            });
+          } catch (error) {
             console.error("Error processing post: ", error);
-            res.status(500).send('Internal Server Error!');
-        }
+            res.status(500).send("Internal Server Error!");
+          }
     },
  
     delete_post_document: async function(req, res){
