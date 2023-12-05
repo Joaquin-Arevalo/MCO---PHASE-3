@@ -9,7 +9,7 @@ the website/project. If you are having difficulties locating the link simply inp
 inputting the link on a web browser would open the website.
 
 Online: 
-To run the project online or to access it simply input the link 'to be replace with the actual link' on the web browser.
+To run the project online or to access it simply input the link 'https://read-it-ccapdev-phu4.onrender.com' on the web browser.
 
 Database:
 To access the database, the user may use monggodb compass and input the following connecion string without the apostrophe
