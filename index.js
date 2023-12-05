@@ -67,7 +67,8 @@ app.use(function(req, res){
     res.send('Error 404: Page Not Found');
 });
 
-app.listen(port, hostname, function(req,res){
+app.listen(port, function(req,res){
+// app.listen(port, hostname, function(req,res){
     // console.log('Server running at: ');
     // console.log('http://' + hostname + ':' + port);
     console.log('listening on port:' + port);
