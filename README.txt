@@ -16,6 +16,8 @@ To access the database, the user may use monggodb compass and input the followin
 'Connected to: mongodb+srv://admin:ccapdev-readit-project0027@cluster0.ut1s2tm.mongodb.net/'. This would display the model schema for account, 
 post, comment, reports, report_comments, and w_ls.
 
+GitHub Repository Link: https://github.com/Joaquin-Arevalo/MCO---PHASE-3.git
+
 Functions:
 Once the user has open the website he/she has the following initial options:
     >Register   - The user may opt to register an account if he/she does not have one yet, this contains the fields the username, password, and 
