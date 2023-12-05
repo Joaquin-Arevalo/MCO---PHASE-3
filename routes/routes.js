@@ -60,7 +60,7 @@ app.post('/edit_comment', isAuthenticated, edit_comment_controllers.get_edit_com
 app.post('/edit_profile', isAuthenticated, edit_profile_controllers.get_edit_profile);
 
 // More routes with isAuthenticated middleware
-app.get('/retrieve_all_posts', isAuthenticated, view_post_controllers.get_all_post_documents);
+app.get('/retrieve_all_posts', view_post_controllers.get_all_post_documents);
 app.get('/retrieve_all_reported_posts', isAuthenticated, admin_controllers.get_all_reported_documents);
 app.get('/retrieve_profile', isAuthenticated, profile_controllers.get_all_user_documents);
 
@@ -77,7 +77,7 @@ app.post('/report_comment', isAuthenticated, comment_controllers.report_comment_
 app.post('/update_profile', isAuthenticated, edit_profile_controllers.update_profile);
 
 // Additional functionality routes with isAuthenticated
-app.get("/search", isAuthenticated, query.searchPost);
+app.get("/search", query.searchPost);
 app.post("/like", isAuthenticated, vote.likePost);
 app.post("/dislike", isAuthenticated, vote.dislikePost);
 
