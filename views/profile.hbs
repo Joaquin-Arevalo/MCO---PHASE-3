@@ -1,0 +1,88 @@
+{{!-- displays the details of the account as well as the latest post and comments of the user, the editting of the account can be found here by clicking the edit button which will redirect you-arevalo --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readit - User Profile</title>
+    <!-- Add Bootstrap CSS link -->
+    {{>head}}
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    {{>navigation}}
+
+    <!-- User Profile -->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/delete_profile" method="post" class="float-end">
+                          <input type="hidden" name="acc_id" value="{{account_res._id}}">
+                          <button class="btn btn-success btn-block" type="submit">Delete</button>
+                        </form> 
+                        <form action="/edit_profile" method="post" class="float-end">
+                          <input type="hidden" name="acc_id" value="{{account_res._id}}">
+                          {{!-- <input type="hidden" name="true_post_id" value="{{../_id}}"> --}}
+                          <button class="btn btn-success btn-block" type="submit">Edit</button>
+                        </form> 
+                        <h2 class="card-title">Account Profile</h2>
+                        <div class="text-center mt-4">
+                            <img src="{{account_res.pfp}}" class="rounded-circle" alt="User Avatar" width="150">
+                        </div>
+                        <h3 class="card-subtitle mt-3">Username: {{account_res.Username}}</h3>
+                        <p class="card-text mt-3">Description: {{account_res.description}}</p>
+                        <hr>                        
+                        <h4 class="card-subtitle">Latest Posts</h4>
+                        <ul class="list-group mt-3">
+                            {{#if posts}}
+                                {{#if (gt (length posts) 0)}}
+                                    {{#each (limit posts 3)}}
+                                    <li class="list-group-item">{{Title}}</li>
+                                    {{/each}}
+                                {{else}}
+                                    <li class="list-group-item">{{posts.Title}}</li>
+                                {{/if}}
+                            {{else}}
+                            <li class="list-group-item">No Post Available. Publish A Post First!</li>
+                            {{/if}}
+                        </ul>                        
+                        <hr>                        
+                        <h4 class="card-subtitle mt-3">Latest Comments</h4>
+                        <ul class="list-group mt-3">
+                            {{#if comments}}
+                                {{#if (gt (length comments) 0)}}
+                                    {{#each (limit comments 3)}}
+                                    <li class="list-group-item">{{Comment_text}}</li>
+                                    {{/each}}
+                                {{else}}
+                                    <li class="list-group-item">{{comments.Comment_text}}</li>
+                                {{/if}}
+                            {{else}}
+                            <li class="list-group-item">No Comments Available. Post A Comment First!</li>
+                            {{/if}}
+                        </ul>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 Readit</p>
+    </footer>
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Your Custom JavaScript File -->
+    {{!-- <script src="script.js"></script> --}}
+    {{!-- added after submission --}}
+    <script src="/js/display_profile.js"></script>
+    <script src="/js/autocomplete.js"  > </script>
+    {{!-- end --}}
+</body>
+</html>
+

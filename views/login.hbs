@@ -1,0 +1,66 @@
+{{!-- shows the values needed to login an account -arevalo --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readit - Login</title>
+    <!-- Add Bootstrap CSS link -->
+    {{>head}}
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    {{>navigation}}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Login to Readit</h2>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" id="login_username_id" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="login_password_id" name="password" class="form-control" required>
+                            </div>
+                            {{!-- <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div> --}}
+                            <button type="submit" class="btn btn-success btn-block" id="login-button">Login</button>
+                            <p id="error_issue" style="font-weight: bold; color: red; text-align: center;"></p>
+                        </form>
+                        {{!-- <div class="text-center mt-3">
+                            <a href="#">Forgot Password?</a>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 Readit</p>
+    </footer>
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Your Custom JavaScript File -->
+    <!-- <script src="script.js"></script> -->
+    <script src="/js/login.js"></script>
+    {{!-- added after submission --}}
+    <script src="/js/autocomplete.js"  > </script>
+    {{!-- end --}}
+</body>
+</html>

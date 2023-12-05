@@ -1,0 +1,73 @@
+{{!-- shows the values needed to register a new account -arevalo --}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readit - Register</title>
+    <!-- Add Bootstrap CSS link -->
+    {{!-- {{>head}} --}}
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous" 
+/>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar (same as index.html) -->
+    {{>navigation}}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">Register for Readit</h2>
+                        <form id="register-form">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username_id" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirm Password:</label>
+                                <input type="password" id="confirm-password" name="confirm-password" class="form-control" required>
+                            </div>
+                            {{!-- <div class="form-group">
+                                <label for="user">User</label>
+                                <input type="radio" id="user_id" name="account_type" value="User">
+                                <label for="admin">Admin</label>
+                                <input type="radio" id="admin_id" name="account_type" value="Admin">
+                            </div> --}}
+
+                            <button type="submit" class="btn btn-success btn-block" id="register-button">Register</button>
+                            <p id="error_issue" style="font-weight: bold; color: red; text-align: center;"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 Readit</p>
+    </footer>
+    <!-- Bootstrap JS and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- Your Custom JavaScript File -->
+    <!-- <script src="script.js"></script> -->
+    <script src="/js/register.js"></script>
+    {{!-- added after submission --}}
+    <script src="/js/autocomplete.js"  > </script>
+    {{!-- end --}}
+</body>
+</html>

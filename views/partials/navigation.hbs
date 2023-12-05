@@ -1,0 +1,73 @@
+{{!-- Responsible for navigating the various pages of the website -arevalo --}}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <img src="/css/images/logoz.png" alt="read-it Logo" width="150" height="50" />
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+                </li>
+                {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/create_post">Create Post</a>
+                    </li>                   
+                {{/if}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/view_post">View Post</a>
+                </li>
+                {{#if (eq acc_type "Admin")}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin_page">Admin Page</a>
+                </li>
+                {{/if}}
+            </ul>
+            {{!-- <input type="text" id="search_id" placeholder="Search">
+            <button class="btn btn-success btn-block" onclick="perform_search()">Search</button> --}}
+
+            {{!-- added after submission --}}
+            {{! NEW SEARCHBAR }}
+            <div class="search-box">
+                <div class="input-box">
+                    <input
+                    id="search-control"
+                    type="text"
+                    class="form-control"
+                    placeholder="Search"
+                    />
+                    <i class="fa fa-search"></i>
+                    <div class="result-box">
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav right-align">
+                {{#if user}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                        {{!-- <button class="nav-link" id="logout-button">Logout</button> --}}
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
+                    </li>                    
+                {{/if}}
+            </ul>
+        </div>
+    </nav>
